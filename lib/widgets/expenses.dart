@@ -26,10 +26,27 @@ class _ExpensesState extends State<Expenses> {
         category: Category.food)
   ];
 
-  void _AddExpense() {
+  void _addExpenseOverlay() {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
-      builder: (ctx) => NewExpense(),
+      builder: (ctx) => NewExpense(onAddExpense: _addExpense),
+    );
+  }
+
+  void _addExpense(Expense expense) {
+    setState(
+      () {
+        _registeredExpenses.add(expense);
+      },
+    );
+  }
+
+  void _removeExpense(Expense expense) {
+    setState(
+      () {
+        _registeredExpenses.remove(expense);
+      },
     );
   }
 
@@ -42,7 +59,7 @@ class _ExpensesState extends State<Expenses> {
           backgroundColor: Colors.amber,
           actions: [
             IconButton(
-              onPressed: _AddExpense,
+              onPressed: _addExpenseOverlay,
               icon: const Icon(
                 Icons.add,
                 size: 30,
@@ -56,7 +73,11 @@ class _ExpensesState extends State<Expenses> {
               'CHART',
               style: TextStyle(fontSize: 20),
             ),
-            Expanded(child: ExpenseList(expenses: _registeredExpenses))
+            Expanded(
+                child: ExpenseList(
+              expenses: _registeredExpenses,
+              onRemovedExpense: _removeExpense,
+            ))
           ],
         ),
       ),

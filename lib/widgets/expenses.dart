@@ -43,25 +43,55 @@ class _ExpensesState extends State<Expenses> {
   }
 
   void _removeExpense(Expense expense) {
+    final expenseIndex = _registeredExpenses.indexOf(expense);
     setState(
       () {
         _registeredExpenses.remove(expense);
       },
     );
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      duration: const Duration(seconds: 4),
+      content: const Text('Expense removed'),
+      action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _registeredExpenses.insert(expenseIndex, expense);
+            });
+          }),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text(
+        'No expenses found. \nTap on " + " icon to add new expense',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 20),
+      ),
+    );
+    if (_registeredExpenses.isNotEmpty) {
+      mainContent = ExpenseList(
+        expenses: _registeredExpenses,
+        onRemovedExpense: _removeExpense,
+      );
+    }
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Expense Tracker'),
+          title: const Text(
+            'Expense Tracker',
+            style: TextStyle(color: Colors.black),
+          ),
           backgroundColor: Colors.amber,
           actions: [
             IconButton(
               onPressed: _addExpenseOverlay,
               icon: const Icon(
                 Icons.add,
+                color: Colors.black,
                 size: 30,
               ),
             )
@@ -73,11 +103,7 @@ class _ExpensesState extends State<Expenses> {
               'CHART',
               style: TextStyle(fontSize: 20),
             ),
-            Expanded(
-                child: ExpenseList(
-              expenses: _registeredExpenses,
-              onRemovedExpense: _removeExpense,
-            ))
+            Expanded(child: mainContent)
           ],
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:expense_app/widgets/expenses.dart';
+//import 'package:expense_app/widgets/expenses.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_app/models/expense.dart';
 
@@ -24,7 +24,7 @@ class _NewExpense extends State<NewExpense> {
     final firstDate = DateTime(now.year - 1, now.month, now.day);
     final pickedDate = await showDatePicker(
         context: context,
-        /*initialDate: now,*/
+        initialDate: now,
         firstDate: firstDate,
         lastDate: now);
 
@@ -107,7 +107,7 @@ class _NewExpense extends State<NewExpense> {
                   children: [
                     Text(
                       _selectedDate == null
-                          ? 'No date selected'
+                          ? 'Select date'
                           : formatter.format(_selectedDate!),
                     ),
                     IconButton(
@@ -129,7 +129,7 @@ class _NewExpense extends State<NewExpense> {
                       (category) => DropdownMenuItem(
                         value: category,
                         child: Text(
-                          category.name.toUpperCase() + '   ',
+                          ' ${category.name.toUpperCase()}   ',
                         ),
                       ),
                     )

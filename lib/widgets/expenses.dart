@@ -81,11 +81,7 @@ class _ExpensesState extends State<Expenses> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Expense Tracker',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.amber,
+          title: const Text('Expense Tracker'),
           actions: [
             IconButton(
               onPressed: _addExpenseOverlay,
@@ -99,10 +95,7 @@ class _ExpensesState extends State<Expenses> {
         ),
         body: Column(
           children: [
-            const Text(
-              'CHART',
-              style: TextStyle(fontSize: 20),
-            ),
+            //const Text('CHART',style: TextStyle(fontSize: 20),),
             Expanded(child: mainContent)
           ],
         ),

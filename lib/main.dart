@@ -31,13 +31,17 @@ void main() {
         appBarTheme: const AppBarTheme().copyWith(
             backgroundColor: Colors.amber, foregroundColor: Colors.black),
         cardTheme: const CardTheme().copyWith(
-          color: kDarkColorScheme.primaryContainer,
+          color: const Color.fromARGB(
+              255, 63, 60, 43), //kDarkColorScheme.onPrimaryFixedVariant,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         snackBarTheme: const SnackBarThemeData(
             backgroundColor: Colors.black,
-            contentTextStyle: TextStyle(color: Colors.amber),
-            actionTextColor: Colors.amber),
+            contentTextStyle: TextStyle(color: Colors.amberAccent),
+            actionTextColor: Colors.amberAccent),
+        textTheme: ThemeData().textTheme.copyWith(
+            titleMedium: const TextStyle(color: Colors.white, fontSize: 16),
+            bodyMedium: TextStyle(color: Colors.amberAccent)),
       ),
       theme: ThemeData().copyWith(
         //useMaterial3: true,

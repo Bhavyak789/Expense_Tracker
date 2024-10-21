@@ -34,12 +34,10 @@ void main() {
           color: kDarkColorScheme.primaryContainer,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
-        // textTheme: ThemeData().textTheme.copyWith(
-        //       titleMedium: const TextStyle(color: Colors.white),
-        //       titleSmall: TextStyle(
-        //         color: Colors.white,
-        //       ),
-        //     ),
+        snackBarTheme: const SnackBarThemeData(
+            backgroundColor: Colors.black,
+            contentTextStyle: TextStyle(color: Colors.amber),
+            actionTextColor: Colors.amber),
       ),
       theme: ThemeData().copyWith(
         //useMaterial3: true,

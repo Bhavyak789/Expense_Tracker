@@ -46,7 +46,7 @@ class _NewExpense extends State<NewExpense> {
           title: const Text('Invalid input'),
           content: const Text('Enter valid Title, Amount, Date and Category'),
           actions: [
-            TextButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.pop(ctx);
               },

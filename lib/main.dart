@@ -40,8 +40,16 @@ void main() {
             contentTextStyle: TextStyle(color: Colors.amberAccent),
             actionTextColor: Colors.amberAccent),
         textTheme: ThemeData().textTheme.copyWith(
-            titleMedium: const TextStyle(color: Colors.white, fontSize: 16),
-            bodyMedium: TextStyle(color: Colors.amberAccent)),
+              titleMedium: const TextStyle(color: Colors.white, fontSize: 16),
+              bodyMedium: TextStyle(color: Colors.amberAccent),
+              bodyLarge: TextStyle(color: Colors.white),
+            ),
+        dialogTheme: DialogTheme(
+            titleTextStyle: TextStyle(
+              color: Colors.amberAccent,
+              fontSize: 20,
+            ),
+            contentTextStyle: TextStyle(color: Colors.white)),
       ),
       theme: ThemeData().copyWith(
         //useMaterial3: true,

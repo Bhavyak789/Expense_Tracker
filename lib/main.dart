@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:expense_app/widgets/expenses.dart';
 //import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -10,21 +8,53 @@ var kColorScheme = ColorScheme.fromSeed(
   secondary: Colors.amberAccent,
 );
 
+var kDarkColorScheme = ColorScheme.fromSeed(
+    brightness: Brightness.dark,
+    seedColor: Colors.amber.shade400,
+    primary: Colors.amber);
+
 void main() {
   runApp(
     MaterialApp(
+      darkTheme: ThemeData.dark().copyWith(
+        colorScheme: kDarkColorScheme,
+        //iconTheme: IconThemeData(color: Colors.black),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.amber,
+            foregroundColor: Colors.black, //kDarkColorScheme.primaryContainer,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+        appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: Colors.amber, foregroundColor: Colors.black),
+        cardTheme: const CardTheme().copyWith(
+          color: kDarkColorScheme.primaryContainer,
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        ),
+        // textTheme: ThemeData().textTheme.copyWith(
+        //       titleMedium: const TextStyle(color: Colors.white),
+        //       titleSmall: TextStyle(
+        //         color: Colors.white,
+        //       ),
+        //     ),
+      ),
       theme: ThemeData().copyWith(
         //useMaterial3: true,
         colorScheme: kColorScheme,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.amber,
               foregroundColor: Colors.black,
+              backgroundColor: Colors.amberAccent,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8))),
         ),
-        appBarTheme:
-            const AppBarTheme().copyWith(backgroundColor: Colors.amber),
+        appBarTheme: const AppBarTheme().copyWith(
+          backgroundColor: Colors.amberAccent,
+          //foregroundColor: Colors.amberAccent,
+        ),
         cardTheme: const CardTheme().copyWith(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
@@ -36,7 +66,7 @@ void main() {
         //       titleLarge: TextStyle(fontWeight: FontWeight.bold),
         //     ),
       ),
-      //theme: ThemeData.dark(useMaterial3: true),
+      themeMode: ThemeMode.system,
       home: const Expenses(),
     ),
   );

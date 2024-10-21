@@ -87,7 +87,7 @@ class _ExpensesState extends State<Expenses> {
               onPressed: _addExpenseOverlay,
               icon: const Icon(
                 Icons.add,
-                color: Colors.black,
+                //color: Colors.black,
                 size: 30,
               ),
             )

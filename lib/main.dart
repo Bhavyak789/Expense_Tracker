@@ -1,5 +1,4 @@
 import 'package:expense_app/widgets/expenses.dart';
-//import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
@@ -18,11 +17,10 @@ void main() {
     MaterialApp(
       darkTheme: ThemeData.dark().copyWith(
         colorScheme: kDarkColorScheme,
-        //iconTheme: IconThemeData(color: Colors.black),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.amber,
-            foregroundColor: Colors.black, //kDarkColorScheme.primaryContainer,
+            foregroundColor: Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
@@ -31,8 +29,7 @@ void main() {
         appBarTheme: const AppBarTheme().copyWith(
             backgroundColor: Colors.amber, foregroundColor: Colors.black),
         cardTheme: const CardTheme().copyWith(
-          color: const Color.fromARGB(
-              255, 63, 60, 43), //kDarkColorScheme.onPrimaryFixedVariant,
+          color: const Color.fromARGB(255, 63, 60, 43),
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
         snackBarTheme: const SnackBarThemeData(
@@ -41,10 +38,10 @@ void main() {
             actionTextColor: Colors.amberAccent),
         textTheme: ThemeData().textTheme.copyWith(
               titleMedium: const TextStyle(color: Colors.white, fontSize: 16),
-              bodyMedium: TextStyle(color: Colors.amberAccent),
-              bodyLarge: TextStyle(color: Colors.white),
+              bodyMedium: const TextStyle(color: Colors.white),
+              bodyLarge: const TextStyle(color: Colors.white),
             ),
-        dialogTheme: DialogTheme(
+        dialogTheme: const DialogTheme(
             titleTextStyle: TextStyle(
               color: Colors.amberAccent,
               fontSize: 20,
@@ -63,18 +60,10 @@ void main() {
         ),
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: Colors.amberAccent,
-          //foregroundColor: Colors.amberAccent,
         ),
         cardTheme: const CardTheme().copyWith(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         ),
-        // textTheme: ThemeData().textTheme.copyWith(
-        //       titleMedium: const TextStyle(
-        //           fontWeight: FontWeight.bold,
-        //           fontSize: 16,
-        //           color: Colors.black),
-        //       titleLarge: TextStyle(fontWeight: FontWeight.bold),
-        //     ),
       ),
       themeMode: ThemeMode.system,
       home: const Expenses(),

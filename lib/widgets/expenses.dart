@@ -1,3 +1,4 @@
+import 'package:expense_app/widgets/chart/chart.dart';
 import 'package:expense_app/widgets/expenses_list/expense_list.dart';
 import 'package:expense_app/models/expense.dart';
 import 'package:expense_app/widgets/new_expense.dart';
@@ -95,6 +96,9 @@ class _ExpensesState extends State<Expenses> {
         ),
         body: Column(
           children: [
+            Chart(expenses: _registeredExpenses),
+            //const SizedBox(height: 16),
+            //Text('Total Expense :  $total'),
             //const Text('CHART',style: TextStyle(fontSize: 20),),
             Expanded(child: mainContent)
           ],

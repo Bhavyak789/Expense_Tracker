@@ -42,11 +42,12 @@ void main() {
               bodyLarge: const TextStyle(color: Colors.white),
             ),
         dialogTheme: const DialogTheme(
-            titleTextStyle: TextStyle(
+          titleTextStyle: TextStyle(
               color: Colors.amberAccent,
               fontSize: 20,
-            ),
-            contentTextStyle: TextStyle(color: Colors.white)),
+              fontWeight: FontWeight.bold),
+          contentTextStyle: TextStyle(color: Colors.white),
+        ),
       ),
       theme: ThemeData().copyWith(
         //useMaterial3: true,
@@ -63,6 +64,10 @@ void main() {
         ),
         cardTheme: const CardTheme().copyWith(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        ),
+        dialogTheme: const DialogTheme(
+          titleTextStyle: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.bold, color: Colors.amber),
         ),
       ),
       themeMode: ThemeMode.system,

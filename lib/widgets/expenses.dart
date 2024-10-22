@@ -51,17 +51,22 @@ class _ExpensesState extends State<Expenses> {
       },
     );
     ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      duration: const Duration(seconds: 4),
-      content: const Text('Expense removed'),
-      action: SnackBarAction(
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Expense removed'),
+        action: SnackBarAction(
           label: 'Undo',
           onPressed: () {
-            setState(() {
-              _registeredExpenses.insert(expenseIndex, expense);
-            });
-          }),
-    ));
+            setState(
+              () {
+                _registeredExpenses.insert(expenseIndex, expense);
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -82,14 +87,16 @@ class _ExpensesState extends State<Expenses> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Expense Tracker'),
+          title: const Text(
+            'Expense Tracker',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           actions: [
             IconButton(
               onPressed: _addExpenseOverlay,
               icon: const Icon(
                 Icons.add,
-                //color: Colors.black,
-                size: 30,
+                size: 32,
               ),
             )
           ],
@@ -99,7 +106,6 @@ class _ExpensesState extends State<Expenses> {
             Chart(expenses: _registeredExpenses),
             //const SizedBox(height: 16),
             //Text('Total Expense :  $total'),
-            //const Text('CHART',style: TextStyle(fontSize: 20),),
             Expanded(child: mainContent)
           ],
         ),

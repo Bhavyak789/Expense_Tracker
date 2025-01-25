@@ -35,6 +35,15 @@ class _ExpensesState extends State<Expenses> {
     );
   }
 
+  double totalAmt() {
+    int l = _registeredExpenses.length;
+    double total = 0;
+    for (int i = 0; i < l; i++) {
+      total = total + _registeredExpenses[i].amount;
+    }
+    return total;
+  }
+
   void _addExpense(Expense expense) {
     setState(
       () {
@@ -71,6 +80,10 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
+    print(MediaQuery.of(context).size.height);
+
+    var amt = totalAmt().toStringAsFixed(2);
     Widget mainContent = const Center(
       child: Text(
         'No expenses found. \nTap on " + " icon to add new expense',
@@ -104,8 +117,14 @@ class _ExpensesState extends State<Expenses> {
         body: Column(
           children: [
             Chart(expenses: _registeredExpenses),
-            //const SizedBox(height: 16),
-            //Text('Total Expense :  $total'),
+            Text(
+              'Total Expense : Rs.$amt', //₹
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 5),
             Expanded(child: mainContent)
           ],
         ),

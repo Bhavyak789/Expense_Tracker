@@ -1,10 +1,10 @@
 # Expense Tracker App
 <body>
   <br>
-  It is a responsive application that assists in keeping track of your expenses and offer a graphical representation <br> 
-  of it in form of a bar graph according to the selected category of the expence. <br>
-  I also contains the functionality to add the date of the expense alsog with a title, amount ,and its category. <br>
-  It is also responsive accordind to the device used and its orientation. The app offers "Light" and "Dark" themes <br> 
-  which is set in corespondence with the theme of the device.
-  
+  It is an application that assists in keeping track of expenses and offers a graphical representation <br> 
+  of it in the form of a bar graph according to the selected category of the expenses. <br>
+  New expenses can be added and deleted along with the option to undo its deletion which is available for a few seconds after the record is deleted. <br> 
+  It also contains the functionality to add the date of the expense along with its title, amount, and category. <br>
+  The app is responsive that is, it adjusts its dimensions according to the device used and its orientation. <br> 
+  It offers "Light" and "Dark" themes which are set in correspondence with the theme of the device.
 </body>

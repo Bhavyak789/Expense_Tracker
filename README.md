@@ -1,16 +1,8 @@
-# expense_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<Title> Expense Tracker </Title>
+<body>
+  <br>
+  It is a responsive application that assists in keeping track of your expenses and offer a graphical representation of it in form of a bar graph according to the selected category of the expence. <br>
+  I also contains the functionality to add the date of the expense alsog with a title, amount ,and its category. <br>
+  It is also responsive accordind to the device used and its orientation. The app offers "Light" and "Dark" themes which is set in corespondence with the theme of the device.
+  
+</body>

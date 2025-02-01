@@ -30,6 +30,7 @@ class _ExpensesState extends State<Expenses> {
   void _addExpenseOverlay() {
     showModalBottomSheet(
       isScrollControlled: true,
+      //useSafeArea: true,
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
     );
@@ -80,8 +81,8 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.of(context).size.width);
-    print(MediaQuery.of(context).size.height);
+    final width = MediaQuery.of(context).size.width;
+    //print(MediaQuery.of(context).size.height);
 
     var amt = totalAmt().toStringAsFixed(2);
     Widget mainContent = const Center(
@@ -114,20 +115,45 @@ class _ExpensesState extends State<Expenses> {
             )
           ],
         ),
-        body: Column(
-          children: [
-            Chart(expenses: _registeredExpenses),
-            Text(
-              'Total Expense : Rs.$amt', //₹
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+        body: width < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registeredExpenses),
+                  Text(
+                    'Total Expense : Rs.$amt', //₹
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Expanded(child: mainContent)
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Chart(expenses: _registeredExpenses),
+                        Text(
+                          'Total Expense : Rs.$amt', //₹
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                      child: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: mainContent,
+                  ))
+                ],
               ),
-            ),
-            const SizedBox(height: 5),
-            Expanded(child: mainContent)
-          ],
-        ),
       ),
     );
   }

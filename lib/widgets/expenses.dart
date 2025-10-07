@@ -85,11 +85,13 @@ class _ExpensesState extends State<Expenses> {
     //print(MediaQuery.of(context).size.height);
 
     var amt = totalAmt().toStringAsFixed(2);
-    Widget mainContent = const Center(
-      child: Text(
-        'No expenses found. \nTap on " + " icon to add new expense',
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 20),
+    Widget mainContent = const SafeArea(
+      child: Center(
+        child: Text(
+          'No expenses found. \nTap on " + " icon to add new expense',
+          textAlign: TextAlign.center,
+          style: TextStyle(fontSize: 20),
+        ),
       ),
     );
     if (_registeredExpenses.isNotEmpty) {

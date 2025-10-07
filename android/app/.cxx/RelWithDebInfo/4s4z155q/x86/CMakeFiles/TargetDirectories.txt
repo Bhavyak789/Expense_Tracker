@@ -1,0 +1,2 @@
+C:/Users/bhavy/Desktop/flutter_projects/expense_app/android/app/.cxx/RelWithDebInfo/4s4z155q/x86/CMakeFiles/edit_cache.dir
+C:/Users/bhavy/Desktop/flutter_projects/expense_app/android/app/.cxx/RelWithDebInfo/4s4z155q/x86/CMakeFiles/rebuild_cache.dir
